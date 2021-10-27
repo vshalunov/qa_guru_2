@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationForm {
 
@@ -50,14 +50,13 @@ public class StudentRegistrationForm {
 
         //Загрузка фотографии пользователя
         $("[id=\"uploadPicture\"]").uploadFile
-                (new File("C:\\Users\\Vasily\\Pictures\\bugs-bunny-communist-1.jpg"));
+                (new File("src/test/resources/z.jpg"));
 
         //Скролл страницы к кнопке Sumbit
         $("[id=\"submit\"]").scrollIntoView(true);
 
         //Заполнение поля Current Address
-        $("[id=\"currentAddress\"]").setValue("22 Партсъезда, 42\n" +
-                "\u200BСоветский район, Самара \u200B443066");
+        $("[id=\"currentAddress\"]").setValue("st. 22 Party Congress, 42, Samara, Samara region, 443066");
 
         //Выбор State и City
         $("[id=\"react-select-3-input\"]").setValue("haryana").pressEnter();
@@ -66,8 +65,23 @@ public class StudentRegistrationForm {
         //Регистрация по кнопке Sumbit
         $("[id=\"submit\"]").click();
 
-        //for debug
-        $("[id=\"gender-radio-1\"]").click();
+        //Проверки
+
+        //Проверяем название модального окна
+        $("[class=\"modal-title h4\"]").shouldHave(text("Thanks for submitting the form"));
+
+        //Проверяем содержание модального окна
+        $x("//div[@class=\"table-responsive\"]//tr[1]/td[2]").shouldHave(text("Vasilii Shalunov"));
+        $x("//div[@class=\"table-responsive\"]//tr[2]/td[2]").shouldHave(text("asdori95@gmail.com"));
+        $x("//div[@class=\"table-responsive\"]//tr[3]/td[2]").shouldHave(text("Male"));
+        $x("//div[@class=\"table-responsive\"]//tr[4]/td[2]").shouldHave(text("9277779143"));
+        $x("//div[@class=\"table-responsive\"]//tr[5]/td[2]").shouldHave(text("29 July,1997"));
+        $x("//div[@class=\"table-responsive\"]//tr[6]/td[2]").shouldHave(text("Computer Science"));
+        $x("//div[@class=\"table-responsive\"]//tr[7]/td[2]").shouldHave(text("Reading"));
+        $x("//div[@class=\"table-responsive\"]//tr[8]/td[2]").shouldHave(text("z.jpg"));
+        $x("//div[@class=\"table-responsive\"]//tr[9]/td[2]")
+                .shouldHave(text("st. 22 Party Congress, 42, Samara, Samara region, 443066"));
+        $x("//div[@class=\"table-responsive\"]//tr[10]/td[2]").shouldHave(text("Haryana Panipat"));
 
     }
 }
