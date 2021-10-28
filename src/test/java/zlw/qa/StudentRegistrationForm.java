@@ -72,16 +72,16 @@ public class StudentRegistrationForm {
 
         //Проверяем содержание модального окна
         $("[class=\"table table-dark table-striped table-bordered table-hover\"]").$("tbody")
-                .shouldHave(text("Vasilii Shalunov"))
-                .shouldHave(text("asdori95@gmail.com"))
-                .shouldHave(text("Male"))
-                .shouldHave(text("9277779143"))
-                .shouldHave(text("29 July,1997"))
-                .shouldHave(text("Computer Science"))
-                .shouldHave(text("Reading"))
-                .shouldHave(text("z.jpg"))
-                .shouldHave(text("st. 22 Party Congress, 42, Samara, Samara region, 443066"))
-                .shouldHave(text("Haryana Panipat"));
+                .shouldHave(text("Vasilii Shalunov"),
+                        text("asdori95@gmail.com"),
+                        text("Male"),
+                        text("9277779143"),
+                        text("29 July,1997"),
+                        text("Computer Science"),
+                        text("Reading"),
+                        text("z.jpg"),
+                        text("st. 22 Party Congress, 42, Samara, Samara region, 443066"),
+                        text("Haryana Panipat"));
 
     }
 }
