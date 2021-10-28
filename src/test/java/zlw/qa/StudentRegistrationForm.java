@@ -68,20 +68,20 @@ public class StudentRegistrationForm {
         //Проверки
 
         //Проверяем название модального окна
-        $("[class=\"modal-title h4\"]").shouldHave(text("Thanks for submitting the form"));
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
         //Проверяем содержание модального окна
-        $x("//div[@class=\"table-responsive\"]//tr[1]/td[2]").shouldHave(text("Vasilii Shalunov"));
-        $x("//div[@class=\"table-responsive\"]//tr[2]/td[2]").shouldHave(text("asdori95@gmail.com"));
-        $x("//div[@class=\"table-responsive\"]//tr[3]/td[2]").shouldHave(text("Male"));
-        $x("//div[@class=\"table-responsive\"]//tr[4]/td[2]").shouldHave(text("9277779143"));
-        $x("//div[@class=\"table-responsive\"]//tr[5]/td[2]").shouldHave(text("29 July,1997"));
-        $x("//div[@class=\"table-responsive\"]//tr[6]/td[2]").shouldHave(text("Computer Science"));
-        $x("//div[@class=\"table-responsive\"]//tr[7]/td[2]").shouldHave(text("Reading"));
-        $x("//div[@class=\"table-responsive\"]//tr[8]/td[2]").shouldHave(text("z.jpg"));
-        $x("//div[@class=\"table-responsive\"]//tr[9]/td[2]")
-                .shouldHave(text("st. 22 Party Congress, 42, Samara, Samara region, 443066"));
-        $x("//div[@class=\"table-responsive\"]//tr[10]/td[2]").shouldHave(text("Haryana Panipat"));
+        $("[class=\"table table-dark table-striped table-bordered table-hover\"]").$("tbody")
+                .shouldHave(text("Vasilii Shalunov"))
+                .shouldHave(text("asdori95@gmail.com"))
+                .shouldHave(text("Male"))
+                .shouldHave(text("9277779143"))
+                .shouldHave(text("29 July,1997"))
+                .shouldHave(text("Computer Science"))
+                .shouldHave(text("Reading"))
+                .shouldHave(text("z.jpg"))
+                .shouldHave(text("st. 22 Party Congress, 42, Samara, Samara region, 443066"))
+                .shouldHave(text("Haryana Panipat"));
 
     }
 }
